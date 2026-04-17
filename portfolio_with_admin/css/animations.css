@@ -1,0 +1,79 @@
+/* =====================================================
+   PORTFOLIO — animations.css
+   Scroll reveal & transition effects
+   ===================================================== */
+
+/* ---- Reveal Base ---- */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: var(--delay, 0s);
+}
+
+.reveal-up { transform: translateY(40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+
+.reveal-up.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ---- Skill bar animated on scroll ---- */
+.skill-fill { transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s); }
+
+/* ---- Card hover micro-interactions ---- */
+.project-card,
+.about-card,
+.timeline-card,
+.contact-card {
+  will-change: transform;
+}
+
+/* ---- Shimmer (loading skeleton placeholder) ---- */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+/* ---- Fade in from nowhere ---- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Profile float ---- */
+.profile-img-container {
+  animation: profileFloat 6s ease-in-out infinite;
+}
+@keyframes profileFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ---- Hero elements cascade in ---- */
+.hero-badge { animation: fadeIn 0.6s ease both; animation-delay: 0.2s; }
+.hero-name { animation: fadeIn 0.6s ease both; animation-delay: 0.35s; }
+.hero-title { animation: fadeIn 0.6s ease both; animation-delay: 0.5s; }
+.hero-bio { animation: fadeIn 0.6s ease both; animation-delay: 0.65s; }
+.hero-cta { animation: fadeIn 0.6s ease both; animation-delay: 0.8s; }
+.hero-stats { animation: fadeIn 0.6s ease both; animation-delay: 0.95s; }
+.profile-wrapper { animation: fadeIn 0.8s ease both; animation-delay: 0.5s; }
+
+/* ---- Navbar smooth shadow ---- */
+.navbar { transition: background 0.4s ease, box-shadow 0.4s ease; }
+
+/* ---- Filter button press ---- */
+.filter-btn:active { transform: scale(0.97); }
+
+/* ---- Modal backdrop blur animate ---- */
+.modal-overlay {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-box {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
